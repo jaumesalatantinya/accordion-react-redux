@@ -1,25 +1,42 @@
 import React, {PropTypes} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as accordionActions from '../actions/accordionActions';
+
 import Header from './Header/Header';
+import Content from './Content/Content';
+import Aside from './Aside/Aside';
 import Footer from './Footer/Footer';
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class App extends React.Component {
+
+    constructor (props, context){
+        super(props, context);
+    }
+
     render () {
         return (
-            <MuiThemeProvider>
-                <div>
-                    <Header />
-                    {this.props.children}
-                    <Footer />
-                </div>
-            </MuiThemeProvider>
+            <div className="App">
+                <Header />
+                <Content />
+                <Aside />
+                <Footer />
+            </div>
         );
     }
 }
 
-App.propTypes = {
-    children: PropTypes.object.isRequired
-};
+function mapStateToProps (state, ownProps) {
+    return {
+        errors: state.errors
+    };
+}
 
-export default App;
+function mapDispatchToProps (dispatch) {
+    return {
+        actions: bindActionCreators(accordionActions, dispatch)
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

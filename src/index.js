@@ -1,16 +1,20 @@
 import 'babel-polyfill';
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Router, browserHistory } from 'react-router';
-import routes from './routes';
+import ReactDom from 'react-dom';
+import {Provider} from 'react-redux';
+import configureStore from './store/configureStore';
+import * as accordionActions from './actions/accordionActions';
+import App from './components/App';
 
-import injectTapEventPlugin from 'react-tap-event-plugin';
-import 'reflex-grid/scss/reflex.scss';
-import './styles/styles.scss';
+import './styles/index.scss';
 
-injectTapEventPlugin();
+const store = configureStore();
 
-ReactDOM.render (
-    <Router history={browserHistory} routes={routes} />,
+store.dispatch(accordionActions.loadContent());
+
+ReactDom.render (
+    <Provider store={store}>
+        <App />
+    </Provider>,
     document.getElementById('app')
 );
