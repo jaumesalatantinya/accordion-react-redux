@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as accordionActions from '../../actions/accordionActions';
+import * as sectionsActions from '../../actions/sectionsActions';
 import AccordionPanel from './AccordionPanel';
 
 class Accordion extends React.Component {
@@ -9,23 +9,24 @@ class Accordion extends React.Component {
     constructor (props){
         super(props);
         this.changeCurrentPanel = this.changeCurrentPanel.bind(this);
+        this.state = {currentPanel: 0};
     }
 
     changeCurrentPanel (newCurrentPanelId) {
-        this.props.actions.changeCurrentPanel(newCurrentPanelId);
+        this.setState({currentPanel: newCurrentPanelId});
     }
 
     render () {
-        const {content, currentPanel} = this.props;
+        const {sections} = this.props;
         let panels;
-        if (content) {
-            panels = content.map((c) => {
-                let isCurrent = ( currentPanel === c.id ) ? true : false;
+        if (sections) {
+            console.log(sections);
+            panels = sections.map((section) => {
+                let isCurrent = ( this.state.currentPanel === section.id ) ? true : false;
                 return (
                     <AccordionPanel
-                        key={c.id}
-                        id={c.id}
-                        content={c}
+                        key={section.id}
+                        section={section}
                         isCurrent={isCurrent}
                         changeCurrentPanel={this.changeCurrentPanel}
                     />
@@ -45,14 +46,13 @@ class Accordion extends React.Component {
 
 function mapStateToProps (state, ownProps) {
     return {
-        content: state.accordion.content,
-        currentPanel: state.accordion.currentPanel
+        sections: state.sections
     };
 }
 
 function mapDispatchToProps (dispatch) {
     return {
-        actions: bindActionCreators(accordionActions, dispatch)
+        actions: bindActionCreators(sectionsActions, dispatch)
     };
 }
 

@@ -1,7 +1,6 @@
-// App Actions
-export const LOAD_CONTENT_SUCCESS = 'LOAD_CONTENT_SUCCESS';
-export const LOAD_CONTENT = 'LOAD_CONTENT';
-export const THROW_APP_ERROR = 'THROW_APP_ERROR';
+// Sections Actions
+export const GET_SECTIONS_SUCCESS = 'GET_SECTIONS_SUCCESS';
+export const GET_SECTIONS = 'GET_SECTIONS';
 
-// Accordion Actions
-export const CHANGE_CURRENT_PANEL = 'CHANGE_CURRENT_PANEL';
+// Errors Actions
+export const THROW_APP_ERROR = 'THROW_APP_ERROR';

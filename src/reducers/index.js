@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux';
-import accordion from './accordionReducers';
+import sections from './sectionsReducers';
 import errors from './errorsReducers';
 
 const rootReducers = combineReducers ({
-    accordion,
+    sections,
     errors
 });
 

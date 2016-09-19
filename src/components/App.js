@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as accordionActions from '../actions/accordionActions';
+import * as errorsActions from '../actions/errorsActions';
 
 import Header from './Header/Header';
 import Content from './Content/Content';
@@ -35,7 +35,7 @@ function mapStateToProps (state, ownProps) {
 
 function mapDispatchToProps (dispatch) {
     return {
-        actions: bindActionCreators(accordionActions, dispatch)
+        actions: bindActionCreators(errorsActions, dispatch)
     };
 }
 

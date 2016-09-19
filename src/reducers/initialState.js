@@ -1,8 +1,5 @@
 export default {
-    accordion : {
-        content: [],
-        currentPanel: 0
-    },
+    sections: [],
     errors: [],
     infos: [],
     warnings: []

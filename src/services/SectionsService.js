@@ -41,8 +41,8 @@ class ContentProvider {
         }
     }
 
-    static getContentFromApi () {
-        const content = [
+    static getSections () {
+        const sections = [
             { id: 1, header: 'Section 1', content: 'Section 1 Accordion...'},
             { id: 2, header: 'Section 2', content: 'Section 2 Accordion...'},
             { id: 3, header: 'Section 3', content: 'Section 3 Accordion...'},
@@ -51,7 +51,7 @@ class ContentProvider {
         const delay = 1000;
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(Object.assign([], content));
+                resolve(Object.assign([], sections));
             }, delay);
         });
     }
