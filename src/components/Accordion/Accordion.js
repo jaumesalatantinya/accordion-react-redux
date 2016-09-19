@@ -9,7 +9,7 @@ class Accordion extends React.Component {
     constructor (props){
         super(props);
         this.changeCurrentPanel = this.changeCurrentPanel.bind(this);
-        this.state = {currentPanel: 0};
+        this.state = {currentPanel: props.defaultOpenPanel};
     }
 
     changeCurrentPanel (newCurrentPanelId) {

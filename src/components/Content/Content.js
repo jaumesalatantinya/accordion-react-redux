@@ -5,7 +5,7 @@ const Content = () => {
 
     return (
         <section className="App-section u-floatLeft">
-            <Accordion />
+            <Accordion defaultOpenPanel={0} />
         </section>
     );
 };
