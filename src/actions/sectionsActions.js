@@ -10,7 +10,6 @@ export function getSections() {
     return function (dispatch) {
         return new SectionsService.getSections().then((sections) => {
             if (sections) {
-                console.log(sections);
                 dispatch(getSectionsSuccess(sections));
             }
         }).catch( (error) => {
