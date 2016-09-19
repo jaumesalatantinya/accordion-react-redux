@@ -12,6 +12,8 @@ class ContentProvider {
             setTimeout(() => {
                 resolve(Object.assign([], sections));
             }, delay);
+            // Uncomment to se App error
+            //reject(new Error('Error getSections from API'));
         });
     }
 }

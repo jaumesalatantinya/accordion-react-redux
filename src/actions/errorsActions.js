@@ -1,6 +1,6 @@
 import * as types from './actionTypes';
 
-export function throwAppError(_error) {
-    let error = { msg: _error.message };
-    return {type: types.THROW_APP_ERROR, error};
+export function throwError(_error) {
+    let error = { message: _error.message };
+    return {type: types.THROW_ERROR, error};
 }

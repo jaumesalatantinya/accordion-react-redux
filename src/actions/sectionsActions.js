@@ -14,7 +14,7 @@ export function getSections() {
                 dispatch(getSectionsSuccess(sections));
             }
         }).catch( (error) => {
-            dispatch(errorsActions.throwAppError(error));
+            dispatch(errorsActions.throwError(error));
         });
     };
 }
